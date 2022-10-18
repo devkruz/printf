@@ -3,18 +3,35 @@
 
 #include <stdarg.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
+
+typedef va_list va_type;
 
 /**
-* format_type - defines a structure for symbols and functions
+* struct format_type - defines a structure for symbols and functions
 *
-* @sumbol: The symbol specified
+* @symbol: The symbol specified
 * @func: The function associated
 */
 
-struct format_type
+typedef struct format_type
 {
-	char *symbol:
-	int (*func)(va_list);
-};
-typedef va_list va_type;
+
+	char *symbol;
+	int (*func)(va_type);
+} format_type;
+
+
+/* function prototype */
+int _printf(const char *format, ...);
+int print_char(va_type);
+int print_string(va_type);
+int print_percent(va_type);
+
+/* helper function prototype */
+
+int controller(const char *, format_type *, va_type);
+int _putchar(char c);
+
 #endif
