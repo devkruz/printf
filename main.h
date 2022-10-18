@@ -28,7 +28,13 @@ int _printf(const char *format, ...);
 int print_char(va_type);
 int print_string(va_type);
 int print_percent(va_type);
-
+int print_unsgined_num(unsigned int);
+int print_num(va_type);
+int print_bin(va_type);
+char *rev_string(char *);
+void write_base(char *);
+unsigned int base_len(unsigned int, int);
+char *_memcpy(char *, char *, unsigned int );
 /* helper function prototype */
 
 int controller(const char *, format_type *, va_type);
