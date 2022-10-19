@@ -19,6 +19,12 @@ int _printf(const char *format, ...)
 		{"d", print_num},
 		{"i", print_num},
 		{"b", print_bin},
+		{"r", print_reversed},
+		{"R", rot13},
+		{"u", unsigned_controller},
+		{"o", print_octal},
+		{"x", print_hex},
+		{"X", print_heX},
 		{NULL, NULL}
 	};
 
