@@ -38,11 +38,12 @@ int print_num(va_type args_list)
 
 	return (len);
 }
+
 /**
  * print_unsgined_number - prints an unsigned number
  * @n: unsigned integer to be printed
  *
- * Return: amount numbers printed
+ * Return: amount of numbers printed
  */
 
 int print_unsgined_num(unsigned int n)
@@ -68,4 +69,25 @@ int print_unsgined_num(unsigned int n)
 
 	return (len);
 }
+
+/**
+ * unsigned_integer - control print_unsigned_num input
+ * @list: list of argumets
+ *
+ * Return: a count of the numbers
+ */
+int unsigned_controller(va_list list)
+{
+	unsigned int num;
+
+	num = va_arg(list, unsigned int);
+
+	if (num == 0)
+		return (print_unsgined_num(num));
+
+	if (num < 1)
+		return (-1);
+	return (print_unsgined_num(num));
+}
+
 

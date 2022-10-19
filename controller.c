@@ -38,13 +38,13 @@ int controller(const char *string, format_type format_list[], va_type arg_list)
 			}
 
 			if (format_list[j].symbol == NULL
-			&& string[j] != ' ')
+			&& string[i + 1] != ' ')
 			{
-				if (string[j + 1] != '\0')
+				if (string[i + 1] != '\0')
 				{
 					_putchar(string[i]);
 					_putchar(string[i + 1]);
-					total_char_printed +=
+					total_char_printed =
 					total_char_printed +
 					2;
 				}
