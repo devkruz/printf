@@ -48,6 +48,8 @@ int controller(const char *string, format_type format_list[], va_type arg_list)
 					total_char_printed +
 					2;
 				}
+				else
+					return (-1);
 			}
 
 			i = i + 1; /* increament i to skip format symb */

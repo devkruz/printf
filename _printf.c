@@ -12,6 +12,9 @@ int _printf(const char *format, ...)
 	int printed_chars;
 	va_type va_list_ptr;
 
+	if (format == NULL)
+		return (-1);
+
 	format_type format_list[] = {
 		{"c", print_char},
 		{"s", print_string},
@@ -28,10 +31,7 @@ int _printf(const char *format, ...)
 		{NULL, NULL}
 	};
 
-	if (format == NULL)
-		return (-1);
-
-	va_start(va_list_ptr, format);
+		va_start(va_list_ptr, format);
 
 	printed_chars = controller(format, format_list,  va_list_ptr);
 

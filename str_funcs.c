@@ -2,7 +2,7 @@
 
 /**
  * print_char - prints character
- * @arg_list: arg_list of arguments
+ * @arg_list: aargument list
  *
  * Return: number of characters printed
  */
@@ -17,7 +17,7 @@ int print_char(va_type arg_list)
 
 /**
  * print_string - prints a string
- * @arg_list: arg_list of arguments
+ * @arg_list: argument list
  *
  * Return: number of characters printed
  */
@@ -40,7 +40,7 @@ int print_string(va_type arg_list)
 
 /**
  * print_percent - prints a percent symbol
- * @arg_list: arg_list of arguments
+ * @arg_list: argument list
  *
  * Return: number of characters printed
 */
@@ -56,24 +56,28 @@ int print_percent(va_type arg_list)
 
 /**
  * print_reversed - print reverted string
- * @arg_list: Argument passed to the function
+ * @arg_list: argument list
  *
  * Return: amount of characters printed
  */
 int print_reversed(va_type arg_list)
 {
 	int len;
-	char *str;
-	char *ptr;
+	char *str, *ptr;
 
 	str = va_arg(arg_list, char *);
+
 	if (str == NULL)
 		return (-1);
+
 	ptr = rev_string(str);
+
 	if (ptr == NULL)
 		return (-1);
-	for (len = 0; ptr[len] != '\0'; len++)
+
+	for (len = 0; ptr[len]; len++)
 		_putchar(ptr[len]);
+
 	free(ptr);
 	return (len);
 }
@@ -86,28 +90,28 @@ int print_reversed(va_type arg_list)
  */
 int rot13(va_type arg_list)
 {
-	int i;
-	int x;
+	int i, j;
 	char *str;
-	char s[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char u[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char rot13_down[53] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char rot13_up[53] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	str = va_arg(arg_list, char *);
+
 	if (str == NULL)
 		return (-1);
+
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		for (x = 0; x <= 52; x++)
+		for (j = 0; j <= 52; j++)
 		{
-			if (str[i] == s[x])
+			if (str[i] == rot13_down[j])
 			{
-				_putchar(u[x]);
+				_putchar(rot13_up[j]);
 				break;
 			}
 		}
-		if (x == 53)
+		if (j == 53)
 			_putchar(str[i]);
 	}
 	return (i);
 }
-
